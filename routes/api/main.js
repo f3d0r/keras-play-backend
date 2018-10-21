@@ -10,8 +10,8 @@ router.get('/ping', function (req, res) {
     res.status(200).send("pong");
 });
 
-router.get('/run_keras', function(req, res)) {
-    
-}
+router.get('/run_keras', function(req, res) {
+
+});
 
 module.exports = router;
