@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+
+  <title>Request Auth Key</title>
+  <link rel="shortcut icon" type="image/png" href="https://trya.space/assets/favicon.png" />
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,900' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+  <meta itemprop="username" content="<%=username%>">
+  <meta itemprop="temp-auth-key" content="<%=temp_auth_key%>">
+
+  <style>
+    body {
+      font-family: "Roboto";
+    }
+
+    .back {
+      background: linear-gradient(120grad, #49C5FC, #86E0F8);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .registration-form {
+      width: 400px;
+      position: absolute;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0%);
+      transform: translate(-50%, 0%);
+      top: 15%;
+      background: transparent;
+    }
+
+    .registration-form header {
+      position: relative;
+      z-index: 4;
+      background: white;
+      padding: 20px 40px;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .registration-form header h1 {
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #333;
+      font-size: 23px;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .registration-form header p {
+      word-spacing: 0px;
+      color: #9facb6;
+      font-size: 17px;
+      margin: 0;
+      margin-top: 5px;
+    }
+
+    .registration-form form {
+      position: relative;
+    }
+
+    .registration-form .input-section {
+      width: 100%;
+      position: absolute;
+      display: flex;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      height: 75px;
+      border-radius: 0 0 15px 15px;
+      overflow: hidden;
+      z-index: 2;
+      box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease-in;
+    }
+
+    .registration-form .input-section.folded {
+      width: 95%;
+      margin-top: 10px;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      z-index: 1;
+    }
+
+    .registration-form .input-section.folded input {
+      background-color: #72D7FF;
+    }
+
+    .registration-form .input-section.folded span {
+      background-color: #72D7FF;
+    }
+
+    .registration-form .input-section.folded+.folded {
+      width: 90%;
+      margin-top: 20px;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      z-index: 0;
+    }
+
+    .registration-form .input-section.folded+.folded input {
+      background-color: #72D7FF;
+    }
+
+    .registration-form .input-section.folded+.folded span {
+      background-color: #72D7FF;
+    }
+
+    .registration-form .input-section.fold-up {
+      margin-top: -75px;
+    }
+
+    .registration-form form input {
+      background: white;
+      color: #9facb6;
+      width: 80%;
+      border: 0;
+      padding: 20px 40px;
+      margin: 0;
+    }
+
+    .registration-form form input:focus {
+      outline: none;
+    }
+
+    .registration-form form input::-webkit-input-placeholder {
+      color: #9facb6;
+      font-weight: 100;
+    }
+
+    .registration-form form input:-ms-input-placeholder {
+      color: #9facb6;
+      font-weight: 100;
+    }
+
+    .registration-form form input::-ms-input-placeholder {
+      color: #9facb6;
+      font-weight: 100;
+    }
+
+    .registration-form form input::placeholder {
+      color: #9facb6;
+      font-weight: 100;
+    }
+
+    .animated-button {
+      width: 20%;
+      background-color: #88E0F7;
+    }
+
+    .animated-button span {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      line-height: 75px;
+      text-align: center;
+      height: 75px;
+      transition: all 0.2s ease-in;
+    }
+
+    .animated-button span i {
+      font-size: 25px;
+      color: white;
+    }
+
+    .animated-button .next-button {
+      background: transparent;
+      font-weight: 100;
+      width: 100%;
+      border: 0;
+    }
+
+    .next {
+      margin-top: -75px;
+    }
+
+    .end_message {
+      width: 100%;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      left: 50%;
+      -webkit-transform: translate(-50%, 0);
+      transform: translate(-50%, 0);
+      height: 75px;
+      border-radius: 0 0 15px 15px;
+      overflow: hidden;
+      z-index: 2;
+      box-shadow: 0px 0px 100px rgba(0, 0, 0, 0.2);
+      transition: all 0.2s ease-in;
+      background-color: #77D7F8;
+      margin-top: -75px;
+    }
+
+    .end_message p {
+      color: white;
+      font-weight: 900;
+      letter-spacing: 2px;
+      font-size: 18px;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="back"></div>
+  <div class="registration-form">
+    <header>
+      <h1>aspace</h1>
+      <p>Request New Auth Key</p>
+    </header>
+    <form>
+      <div class="input-section username-section">
+        <input class="username" type="text" placeholder="Username" autocomplete="off" disabled />
+        <div class="animated-button">
+          <span class="icon-paper-plane">
+            <i class="fa fa-user"></i>
+          </span>
+          <span class="next-button username">
+            <i class="fa fa-arrow-up"></i>
+          </span>
+        </div>
+      </div>
+      <div class="input-section password-section folded">
+        <input class="password" type="password" placeholder="Passsword" disabled />
+        <div class="animated-button">
+          <span class="icon-lock">
+            <i class="fa fa-lock"></i>
+          </span>
+          <span class="next-button password">
+            <i class="fa fa-arrow-up"></i>
+          </span>
+        </div>
+      </div>
+      <div class="input-section requested-permission-section folded">
+        <input class="requested-permission" type="text" placeholder="Permission ('update_status')" />
+        <div class="animated-button">
+          <span class="icon-repeat-lock">
+            <i class="fa fa-lock"></i>
+          </span>
+          <span class="next-button requested-permission">
+            <i class="fa fa-arrow-right"></i>
+          </span>
+        </div>
+      </div>
+      <div class="end_message">
+        <p>Loading API Key...</p>
+      </div>
+    </form>
+  </div>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script>
+    var metadataUsername = $("meta[itemprop=username]").attr('content');
+    var metadataAuthKey = $("meta[itemprop=temp-auth-key]").attr('content');
+    var permission = null;
+
+    $(document).ready(function () {
+      $('input.username').val(metadataUsername);
+      $('input.password').val(metadataAuthKey);
+
+      $('.username').ready(function () {
+        $('.icon-paper-plane').addClass("next");
+        $(this).css('cursor', 'pointer');
+      });
+
+      $('.password').ready(function () {
+        $('.icon-lock').addClass("next");
+        $(this).css('cursor', 'pointer');
+      });
+    });
+
+    $('.next-button.username').click(
+      function () {
+        $('.username-section').addClass("fold-up");
+        $('.password-section').removeClass("folded");
+      }
+    );
+
+    $('.next-button').hover(
+      function () {
+        $(this).css('cursor', 'pointer');
+      }
+    );
+
+    $('.next-button.password').click(
+      function () {
+        $('.password-section').addClass("fold-up");
+        $('.requested-permission-section').removeClass("folded");
+      }
+    );
+
+    $('.requested-permission').on("change keyup paste",
+      function () {
+        if ($(this).val())
+          $('.icon-repeat-lock').addClass("next");
+        else
+          $('.icon-repeat-lock').removeClass("next");
+      }
+    );
+
+    $('.next-button.requested-permission').click(
+      function () {
+        permission = $('.requested-permission').val();
+        requestKey();
+        $('.requested-permission-section').addClass("fold-up");
+        $('.end_message').css("marginTop", 0);
+      }
+    );
+
+    function requestKey() {
+      $.ajax({
+        "async": true,
+        "crossDomain": true,
+        "url": "https://api.trya.space/v1/admin/finalize_temp_auth_key?request_user=" + metadataUsername +
+          "&temp_auth_key=" + metadataAuthKey +
+          "&requested_permission=" + permission,
+        "method": "POST",
+        "headers": {},
+        success: function (msg) {
+          if (msg.res_info.code == 17) {
+            $(".end_message").css("background-color", "limegreen");
+            $(".end_message p").css("font-size", "12px");
+            $(".end_message").html("<p>SUCCESS!<br>" + msg.res_content.auth_key + "<br>Permission: " + msg.res_content
+              .permission + "</p>");
+          } else {
+            $(".end_message").html("<p>Invalid Permission or Authority!</p>");
+            $(".end_message").css("background-color", "red");
+            $(".end_message p").css("font-size", "14px");
+          }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {}
+      });
+    }
+  </script>
+</body>
+
+</html>
