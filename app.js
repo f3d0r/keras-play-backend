@@ -36,11 +36,11 @@ app.use(helmet())
 
 // MAIN ENDPOINTS
 app.get('/', function (req, res, next) {
-    next(errors.getResponseJSON('MAIN_ENDPOINT_FUNCTION_SUCCESS', "Welcome to the API! :)"));
+    res.status(200).send("Welcome to the API!");
 });
 
 app.get('/ping', function (req, res, next) {
-    next(errors.getResponseJSON('MAIN_ENDPOINT_FUNCTION_SUCCESS', "pong"));
+    res.status(200).send("pong");
 });
 
 app.use(require('./routes'));
