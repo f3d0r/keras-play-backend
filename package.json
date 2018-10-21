@@ -54,21 +54,8 @@
   },
   "_moduleAliases": {
     "@root": ".",
-    "@auth-bcrypt": "misc/auth/bcrypt",
-    "@auth-basic": "misc/auth/basic",
-    "@auth-user": "misc/auth/user",
-    "@errors": "misc/errors/errorHandler",
-    "@error-codes": "misc/errors/errorCodes",
-    "@misc": "misc",
     "@config": "config",
-    "@sql": "database/sqlActions",
-    "@connection": "app",
-    "@twilio": "misc/twilio",
-    "@timestamp": "misc/timestamp",
-    "@parking-calc": "misc/parkingCalc",
-    "@bcrypt": "misc/auth/bcrypt",
-    "@body-structure": "config/bodyStructs",
-    "@upload": "app"
+    "@sql": "database/sqlActions"
   },
   "_moduleDirectories": [
     "node_modules"
