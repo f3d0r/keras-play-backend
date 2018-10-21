@@ -3,10 +3,8 @@ var multer = require('multer');
 var sharp = require('sharp');
 var fs = require('fs');
 var uniqueString = require('unique-string');
-var errors = require('@errors');
 const constants = require('@config');
 var sql = require('@sql');
-var userAuth = require('@auth-user');
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {

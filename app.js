@@ -21,7 +21,6 @@ if (process.env.THREAD_COUNT == "CPU_COUNT" || process.env.THREAD_COUNT == "CPU"
 
 // LOCAL IMPORTS
 const constants = require('@config');
-const errors = require('@errors');
 
 // EXPRESS SET UP
 var app = express();
