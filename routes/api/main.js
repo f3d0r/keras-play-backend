@@ -1,5 +1,4 @@
 var router = require('express').Router();
-var multer = require('multer');
 var fs = require('fs');
 var cmd = require('node-cmd');
 
