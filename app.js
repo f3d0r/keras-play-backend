@@ -6,7 +6,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const timeout = require('connect-timeout');
 var helmet = require('helmet')
-var toobusy = require('express-toobusy')();
 
 if (process.env.THREAD_COUNT == "CPU_COUNT" || process.env.THREAD_COUNT == "CPU") {
     threadCount = require('os').cpus().length;
@@ -26,7 +25,6 @@ const constants = require('@config');
 var app = express();
 
 app.use(timeout(constants.express.RESPONSE_TIMEOUT_MILLI));
-app.use(toobusy);
 app.use(bodyParser.urlencoded({
     extended: false
 }));
