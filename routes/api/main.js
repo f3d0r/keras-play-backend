@@ -11,7 +11,7 @@ router.get('/ping', function (req, res) {
 });
 
 router.get('/run_keras', function(req, res) {
-
+    res.send(req.body);
 });
 
 module.exports = router;
