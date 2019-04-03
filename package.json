@@ -1,7 +1,7 @@
 {
   "author": "Fedor Paretsky",
   "bugs": {
-    "url": "https://gitlab.com/f3d0r/keras-play-backend/issues"
+    "url": "https://github.com/f3d0r/keras-play-backend/issues"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -98,10 +98,10 @@
       "sort-requires/sort-requires": 2
     }
   },
-  "homepage": "https://gitlab.com/aspace/backend#README",
+  "homepage": "https://github.com/f3d0r/keras-play-backend/backend#README",
   "license": "Apache-2.0",
   "main": "app.js",
-  "name": "aspace_backend",
+  "name": "keras-play-backend",
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
@@ -109,7 +109,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/aspace/backend.git"
+    "url": "git+ssh://git@github.com/f3d0r/keras-play-backend.git"
   },
   "scripts": {
     "deploy": "pm2 start app.js --watch",

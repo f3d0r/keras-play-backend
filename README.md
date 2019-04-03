@@ -1,3 +1,1 @@
-# aspace-backend
-
-aspace, Inc. - Backend
+# keras-play-backend
