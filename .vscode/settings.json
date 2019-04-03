@@ -1,0 +1,14 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.codeActionsOnSaveTimeout": 10000,
+  "editor.detectIndentation": true,
+  "editor.formatOnSave": true,
+  "eslint.autoFixOnSave": true,
+  "extensions.ignoreRecommendations": true,
+  "files.insertFinalNewline": false,
+  "files.trimTrailingWhitespace": true,
+  "javascript.format.enable": false,
+  "prettier.eslintIntegration": true
+}

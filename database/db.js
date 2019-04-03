@@ -1,17 +1,17 @@
-var mysql = require('mysql');
-const constants = require('@config');
+const constants = require('../config');
+const mysql = require('mysql');
 
-var pool = mysql.createPool({
-    host: constants.db.DATABASE_IP,
-    user: constants.db.DATABASE_USER,
-    password: constants.db.DATABASE_PASSWORD,
+const pool = mysql.createPool({
     database: constants.db.DATABASE_NAME,
+    host: constants.db.DATABASE_IP,
+    multipleStatements: true,
+    password: constants.db.DATABASE_PASSWORD,
     port: constants.db.DATABASE_PORT,
-    multipleStatements: true
+    user: constants.db.DATABASE_USER
 });
 
-exports.getConnection = function (callback) {
-    pool.getConnection(function (err, connection) {
+module.exports.getConnection = (callback) => {
+    pool.getConnection((err, connection) => {
         callback(err, connection);
     });
 };

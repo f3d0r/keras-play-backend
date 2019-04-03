@@ -1,55 +1,44 @@
-require('module-alias/register');
-
 // PACKAGE IMPORTS
-const express = require('express');
+require('express-async-errors');
 const bodyParser = require('body-parser');
+const constants = require('./config');
 const cors = require('cors');
+const express = require('express');
+const helmet = require('helmet');
 const timeout = require('connect-timeout');
-var helmet = require('helmet')
-
-if (process.env.THREAD_COUNT == "CPU_COUNT" || process.env.THREAD_COUNT == "CPU") {
-    threadCount = require('os').cpus().length;
-} else {
-    try {
-        threadCount = parseInt(process.env.THREAD_COUNT)
-    } catch (e) {
-        console.log("INVALID \"INSTANCE_COUNT\" environment variable. Exiting...")
-        process.exit()
-    }
-}
-
-// LOCAL IMPORTS
-const constants = require('@config');
 
 // EXPRESS SET UP
-var app = express();
+const app = express();
 
 app.use(timeout(constants.express.RESPONSE_TIMEOUT_MILLI));
-app.use(bodyParser.urlencoded({
+app.use(
+  bodyParser.urlencoded({
     extended: false
-}));
+  })
+);
 app.use(bodyParser.json());
 app.use(cors());
-app.use(helmet())
+app.use(helmet());
 
 // MAIN ENDPOINTS
-app.get('/', function (req, res, next) {
-    res.status(200).send("Welcome to the API!");
+app.get('/', async (req, res) => {
+  res.send('Welcome to the API!');
 });
 
-app.get('/ping', function (req, res, next) {
-    res.status(200).send("pong");
+app.get('/ping', async (req, res) => {
+  res.send('pong');
 });
 
 app.use(require('./routes'));
 
-app.use(haltOnTimedout);
-
 function haltOnTimedout(req, res, next) {
-    if (!req.timedout)
-        next();
+  if (!req.timedout) next();
 }
 
-var server = app.listen(process.env.PORT, function () {
-    console.log("SERVER STARTED on PORT " + process.env.PORT);
+app.use(haltOnTimedout);
+
+const server = app.listen(process.env.PORT, () => {
+  console.log(`SERVER STARTED on PORT ${process.env.PORT}`);
 });
+
+module.exports = server;

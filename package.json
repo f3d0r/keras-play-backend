@@ -1,45 +1,122 @@
 {
-  "name": "aspace_backend",
-  "version": "1.0.0",
-  "description": "aspace, Inc. - Backend (node.js/Express.js stack), available at https://api.trya.space.",
+  "author": "Fedor Paretsky",
+  "bugs": {
+    "url": "https://gitlab.com/f3d0r/keras-play-backend/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "child_process": "^1.0.2",
+    "connect-timeout": "^1.9.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "express-async-errors": "^3.1.1",
+    "fs": "0.0.1-security",
+    "helmet": "^3.16.0",
+    "mysql": "^2.16.0",
+    "node-cmd": "^3.0.0",
+    "os": "^0.1.1",
+    "request-promise": "^4.2.4",
+    "unique-string": "^1.0.0"
+  },
+  "description": "keras-play-backend",
+  "devDependencies": {
+    "ajv": "^6.10.0",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
+    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-sort-requires": "^2.1.0",
+    "prettier": "^1.16.4"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": false,
+      "commonjs": true,
+      "es6": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb",
+      "plugin:node/recommended",
+      "prettier"
+    ],
+    "globals": {
+      "Atomics": "readonly",
+      "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+      "ecmaVersion": 9
+    },
+    "plugins": [
+      "prettier",
+      "json",
+      "sort-requires"
+    ],
+    "rules": {
+      "import/order": 0,
+      "node/exports-style": [
+        "error",
+        "module.exports"
+      ],
+      "node/prefer-global/buffer": [
+        "error",
+        "always"
+      ],
+      "node/prefer-global/console": [
+        "error",
+        "always"
+      ],
+      "node/prefer-global/process": [
+        "error",
+        "always"
+      ],
+      "node/prefer-global/url": [
+        "error",
+        "always"
+      ],
+      "node/prefer-global/url-search-params": [
+        "error",
+        "always"
+      ],
+      "prettier/prettier": 0,
+      "sort-keys": [
+        "error",
+        "asc",
+        {
+          "caseSensitive": true,
+          "natural": true
+        }
+      ],
+      "sort-requires/sort-requires": 2
+    }
+  },
+  "homepage": "https://gitlab.com/aspace/backend#README",
+  "license": "Apache-2.0",
   "main": "app.js",
-  "scripts": {
-    "start": "node app.js",
-    "dev": "PORT=3001 node app.js",
-    "prod": "PORT=3000 node app.js",
-    "deploy": "pm2 start app.js --watch",
-    "test": "debug"
+  "name": "aspace_backend",
+  "prettier": {
+    "printWidth": 100,
+    "singleQuote": true,
+    "tabWidth": 2
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@gitlab.com/aspace/backend.git"
   },
-  "author": "aspace, Inc.",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://gitlab.com/aspace/backend/issues"
+  "scripts": {
+    "deploy": "pm2 start app.js --watch",
+    "dev": "PORT=3001 node app.js",
+    "prod": "PORT=3000 node app.js",
+    "start": "node app.js",
+    "test": "debug"
   },
-  "homepage": "https://gitlab.com/aspace/backend#README",
-  "dependencies": {
-    "connect-timeout": "^1.9.0",
-    "cors": "^2.8.4",
-    "express": "^4.16.3",
-    "express-cluster": "0.0.5",
-    "express-toobusy": "0.0.3",
-    "helmet": "^3.13.0",
-    "module-alias": "^2.1.0",
-    "node-cmd": "^3.0.0",
-    "request": "^2.87.0",
-    "request-promise": "^4.2.2",
-    "serve-favicon": "^2.5.0",
-    "sharp": "^0.20.5"
-  },
-  "_moduleAliases": {
-    "@root": ".",
-    "@config": "config",
-    "@sql": "database/sqlActions"
-  },
-  "_moduleDirectories": [
-    "node_modules"
-  ]
+  "version": "1.0.0"
 }
