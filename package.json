@@ -4,34 +4,34 @@
     "url": "https://github.com/f3d0r/keras-play-backend/issues"
   },
   "dependencies": {
-    "body-parser": "^1.18.3",
+    "body-parser": "^1.19.0",
     "child_process": "^1.0.2",
     "connect-timeout": "^1.9.0",
     "cors": "^2.8.5",
-    "express": "^4.16.4",
+    "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
     "fs": "0.0.1-security",
-    "helmet": "^3.16.0",
-    "mysql": "^2.16.0",
+    "helmet": "^3.18.0",
+    "mysql": "^2.17.1",
     "node-cmd": "^3.0.0",
     "os": "^0.1.1",
     "request-promise": "^4.2.4",
-    "unique-string": "^1.0.0"
+    "unique-string": "^2.0.0"
   },
   "description": "keras-play-backend",
   "devDependencies": {
     "ajv": "^6.10.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-import": "^2.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-json": "^1.4.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-node": "^8.0.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.13.0",
     "eslint-plugin-sort-requires": "^2.1.0",
-    "prettier": "^1.16.4"
+    "prettier": "^1.18.2"
   },
   "engines": {
     "node": ">=10.0.0"
