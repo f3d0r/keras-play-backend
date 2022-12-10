@@ -8,7 +8,7 @@
     "child_process": "^1.0.2",
     "connect-timeout": "^1.9.0",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-async-errors": "^3.1.1",
     "fs": "0.0.1-security",
     "helmet": "^3.20.1",
